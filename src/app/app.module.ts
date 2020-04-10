@@ -7,6 +7,7 @@ import { ShowUserComponent } from './show-user/show-user.component';
 import { ShowReposComponent } from './show-repos/show-repos.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchFormComponent } from './search-form/search-form.component';
+import { CodersComponent } from './coders/coders.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SearchFormComponent } from './search-form/search-form.component';
     ShowUserComponent,
     ShowReposComponent,
     NavbarComponent,
-    SearchFormComponent
+    SearchFormComponent,
+    CodersComponent
   ],
   imports: [
     BrowserModule,
