@@ -1,1 +1,7 @@
-<p>show-user works!</p>
+<div class="container-fluid">
+  <ul *ngFor="let searchedUser of searchedUsers">
+    <li>{{searchedUser.username}} {{searchedUser.url}}</li>
+    <img src="{{searchedUser.userImage}}" alt="">
+  </ul>
+
+</div>

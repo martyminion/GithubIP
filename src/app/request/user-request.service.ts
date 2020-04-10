@@ -2,28 +2,32 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {User} from '../user'
 import {SearchFormComponent} from '../search-form/search-form.component'
-import { resolve } from 'dns';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRequestService {
-  apiUrl = "https://api.github.com/users/";
+  apiUrl = "https://api.github.com/search/users?q=";
   user:User;
+  users:User[]=[];
+  data:any
   userName:SearchFormComponent;
   constructor(private http:HttpClient) {
-    this.user = new User("",0,"")
+    this.user = new User("","","")
    }
 
-   userRequest(){
+   userRequest(name){
      let promise = new Promise((resolve,reject)=>{
-       let userrequesturl = this.apiUrl + this.userName.user
+       let userrequesturl = this.apiUrl + name
        this.http.get(userrequesturl).toPromise().then(response=>{
-         //this.user.username = response.name
-         //this.user.userImage = response.avatar_url
-         //this.user.reposNumber = response.public_repos
-         console.log(response)
-
+         this.data = response
+         console.log(this.data)
+        for(let i = 0; i<15;i++){
+         this.user.username = this.data.items[i].login
+         this.user.userImage = this.data.items[i].avatar_url
+         this.user.url = this.data.items[i].html_url
+         this.users.push(new User(this.user.username,this.user.url,this.user.userImage))
+        }
          resolve()
        },
        error=>{

@@ -11,17 +11,12 @@ export class CodersComponent implements OnInit {
   constructor( ) { }
 
   searchByUser(user){
-    alert(user)
+    //alert(user)
   }
   searchByRepo(repo){
     alert(repo)
   }
-
-  
-
   ngOnInit(){
-
-
   }
 
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
+import {UserRequestService} from '../request/user-request.service'
 
 @Component({
   selector: 'app-search-form',
@@ -12,18 +13,20 @@ export class SearchFormComponent implements OnInit {
 
   user:string
   repo:string
+  constructor(private userService:UserRequestService) { }
+
   userName(searchByUsername:HTMLInputElement){
     this.searchUser.emit(searchByUsername.value)
-
     this.user = searchByUsername.value
-
+    
+    this.userService.userRequest(this.user)
   }
   repository(searchByRepository:HTMLInputElement){
     this.searchRepo.emit(searchByRepository.value)
     this.repo = searchByRepository.value
   }
 
-  constructor() { }
+ 
 
   ngOnInit(): void {
   }
