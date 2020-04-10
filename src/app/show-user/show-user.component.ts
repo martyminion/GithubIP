@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {UserRequestService} from '../request/user-request.service'
+import {User} from '../user'
 
 @Component({
   selector: 'app-show-user',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowUserComponent implements OnInit {
 
-  constructor() { }
+  user:User;
 
-  ngOnInit(): void {
+  constructor( private userService:UserRequestService) { }
+
+  ngOnInit(){
+    this.userService.userRequest()
+
+    this.user = this.userService.user
+
   }
 
 }
