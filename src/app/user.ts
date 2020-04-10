@@ -1,6 +1,8 @@
 export class User {
-  
-  constructor(public username:number, public reposNumber:number, public repos:Array<string>, public userImage:string){
+  repos:Array<string>;
+  error:string;
+
+  constructor(public username:string, public reposNumber:number, public userImage:string){
 
   }
 }
