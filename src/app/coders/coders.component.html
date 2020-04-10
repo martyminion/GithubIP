@@ -1,5 +1,5 @@
 <h1>Are you a coder like me</h1>
 
 <div class="text-center">
-  <app-search-form></app-search-form>
+  <app-search-form (searchUser)="searchByUser($event)" (searchRepo)="searchByRepo($event)"></app-search-form>
 </div>

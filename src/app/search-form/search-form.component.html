@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="form-group">
     <label for="searchByUsername">Search by Username</label>
-    <input type="text" name="searchByUsername" id="searchByUsername" class="form-control">
-    <button class="btn btn-primary"></button>
+    <input type="text" name="searchByUsername" id="searchByUsername" class="form-control" #searchByUsername>
+    <button class="btn btn-primary" (click)="userName(searchByUsername)"></button>
   </div>
   <div class="form-group">
     <label for="searchByRepository">Search by Repository</label>
-    <input type="text" name="searchByRepository" id="searchByRepository" class="form-control">
-    <button class="btn btn primary"></button>
+    <input type="text" name="searchByRepository" id="searchByRepository" class="form-control" #searchByRepository>
+    <button class="btn btn primary" (click)="repository(searchByRepository)"></button>
   </div>
 </div>
