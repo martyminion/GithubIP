@@ -1,5 +1,7 @@
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 import {UserRequestService} from '../request/user-request.service'
+import {RepoRequestService} from '../request/repo-request.service'
+
 
 @Component({
   selector: 'app-search-form',
@@ -13,7 +15,7 @@ export class SearchFormComponent implements OnInit {
 
   user:string
   repo:string
-  constructor(private userService:UserRequestService) { }
+  constructor(private userService:UserRequestService, private repoService:RepoRequestService) { }
 
   userName(searchByUsername:HTMLInputElement){
     this.searchUser.emit(searchByUsername.value)
@@ -24,6 +26,8 @@ export class SearchFormComponent implements OnInit {
   repository(searchByRepository:HTMLInputElement){
     this.searchRepo.emit(searchByRepository.value)
     this.repo = searchByRepository.value
+
+    this.repoService.repoRequest(this.repo)
   }
 
  

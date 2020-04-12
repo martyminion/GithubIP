@@ -6,32 +6,36 @@ import {SearchFormComponent} from '../search-form/search-form.component'
 @Injectable({
   providedIn: 'root'
 })
-export class UserRequestService {
-  apiUrl = "https://api.github.com/search/users?q=";
+export class RepoRequestService {
+  apiUrl = "https://api.github.com/search/repositories?q=";
   repository:Repository;
   repositories:Repository[]=[];
   data:any
-  userName:SearchFormComponent;
+  repoNAme:SearchFormComponent;
   constructor(private http:HttpClient) {
-    this.repository = new Repository("","","",new Date(),"")
+    this.repository = new Repository("","","",new Date(),"","")
    }
 
-   userRequest(name){
+   repoRequest(repo){
      let promise = new Promise((resolve,reject)=>{
-       let userrequesturl = this.apiUrl + name
-       this.http.get(userrequesturl).toPromise().then(response=>{
+       let reporequesturl = this.apiUrl + repo
+       this.http.get(reporequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)
         for(let i = 0; i<15;i++){
-         this.user.username = this.data.items[i].login
-         this.user.userImage = this.data.items[i].avatar_url
-         this.user.url = this.data.items[i].html_url
-         this.users.push(new User(this.user.username,this.user.url,this.user.userImage))
+         this.repository.name = this.data.items[i].name
+         this.repository.description = this.data.items[i].description
+         this.repository.deployedSite = this.data.items[i].homepage
+         this.repository.createdAt = this.data.items[i].created_at
+         this.repository.urlLink = this.data.items[i].html_url
+         this.repository.owner = this.data.items[i].owner.login
+
+         this.repositories.push(new Repository(this.repository.name,this.repository.description,this.repository.deployedSite,new Date(this.repository.createdAt),this.repository.urlLink,this.repository.owner))
         }
          resolve()
        },
        error=>{
-         this.user.error = "Please Enter a Valid Username"
+         this.repository.error = "Please Enter a Valid Repository Name"
          reject(error)
        })
      })
