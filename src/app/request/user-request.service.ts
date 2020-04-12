@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {User} from '../user'
 import {SearchFormComponent} from '../search-form/search-form.component'
+import {environment} from '../../environments/environment'
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class UserRequestService {
 
    userRequest(name){
      let promise = new Promise((resolve,reject)=>{
-       let userrequesturl = this.apiUrl + name
+       let userrequesturl = this.apiUrl + name + "?access_token=" + environment.token
        this.http.get(userrequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)

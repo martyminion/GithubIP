@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {Repository} from '../repository'
 import {SearchFormComponent} from '../search-form/search-form.component'
-
+import {environment} from '../../environments/environment'
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +18,7 @@ export class RepoRequestService {
 
    repoRequest(repo){
      let promise = new Promise((resolve,reject)=>{
-       let reporequesturl = this.apiUrl + repo
+       let reporequesturl = this.apiUrl + repo + "?access_token=" + environment.token
        this.http.get(reporequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)
