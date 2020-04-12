@@ -1,25 +1,29 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import {User} from '../user'
-import {SearchFormComponent} from '../search-form/search-form.component'
-import {environment} from '../../environments/environment'
+import {User} from '../user';
+import {Owner} from '../user';
+import {SearchFormComponent} from '../search-form/search-form.component';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserRequestService {
-  apiUrl = "https://api.github.com/search/users?q=";
+  usersapiUrl = "https://api.github.com/search/users?q=";
+  userUrl = "https://api.github.com/users/martyminion"
   user:User;
   users:User[]=[];
+  owner:Owner;
   data:any
   userName:SearchFormComponent;
   constructor(private http:HttpClient) {
     this.user = new User("","","")
+    this.owner = new Owner("","","",0,new Date())
    }
 
    userRequest(name){
      let promise = new Promise((resolve,reject)=>{
-       let userrequesturl = this.apiUrl + name + "?access_token=" + environment.token
+       let userrequesturl = this.usersapiUrl + name + "?access_token=" + environment.token
        this.http.get(userrequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)
@@ -39,4 +43,31 @@ export class UserRequestService {
      return promise
 
    }
+
+   personalRequest(){
+    let promise = new Promise((resolve,reject)=>{
+      let personalRequestUrl = this.userUrl+ "?access_token=" + environment.token
+      this.http.get(personalRequestUrl).toPromise().then(response=>{
+        this.data = response
+        console.log(this.data)
+       for(let i = 0; i<15;i++){
+        this.owner.username = this.data.name
+        this.owner.userImage = this.data.avatar_url
+        this.owner.url = this.data.html_url
+        this.owner.repoNumber = this.data.public_repos
+        this.owner.created = this.data.created_at
+        this.owner = new Owner(this.owner.username,this.owner.url,this.owner.userImage,this.owner.repoNumber,new Date(this.owner.created))
+       }
+        resolve()
+      },
+      error=>{
+        this.owner.Perror = "Could not find owner"
+        reject(error)
+      })
+    })
+    return promise
+
+  }
+
+   
 }

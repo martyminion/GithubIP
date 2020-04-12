@@ -8,6 +8,7 @@ import {environment} from '../../environments/environment'
 })
 export class RepoRequestService {
   apiUrl = "https://api.github.com/search/repositories?q=";
+  ownerRepos = "https://api.github.com/users/martyminion/repos";
   repository:Repository;
   repositories:Repository[]=[];
   data:any
