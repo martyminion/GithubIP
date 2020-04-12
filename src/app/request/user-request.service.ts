@@ -50,14 +50,14 @@ export class UserRequestService {
       this.http.get(personalRequestUrl).toPromise().then(response=>{
         this.data = response
         console.log(this.data)
-       for(let i = 0; i<15;i++){
+       
         this.owner.username = this.data.name
         this.owner.userImage = this.data.avatar_url
         this.owner.url = this.data.html_url
         this.owner.repoNumber = this.data.public_repos
         this.owner.created = this.data.created_at
         this.owner = new Owner(this.owner.username,this.owner.url,this.owner.userImage,this.owner.repoNumber,new Date(this.owner.created))
-       }
+       
         resolve()
       },
       error=>{
