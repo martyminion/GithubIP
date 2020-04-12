@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule} from '@angular/common/http';
+import {RoutingModule} from '../app/routing/routing.module';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -26,6 +27,7 @@ import { CodersComponent } from './coders/coders.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    RoutingModule,
   
   ],
   providers: [],
