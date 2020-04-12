@@ -1,7 +1,15 @@
 <h1>Are you a coder like me</h1>
 
-<div class="text-center">
-  <app-search-form (searchUser)="searchByUser($event)" (searchRepo)="searchByRepo($event)"></app-search-form>
+<div>
+  <h3>Hey I'm {{ownerinfo.username}}</h3>
+</div>
+<div *ngFor="let Repo of Repos">
+  <h3>repo name : {{Repo.name}}</h3>
+  <p>{{Repo.description}}</p>
+</div>
+
+<!-- <div class="text-center">
+  <app-search-form></app-search-form>
 </div>
 
 <div>
@@ -10,4 +18,4 @@
 
 <div>
   <app-show-repos></app-show-repos>
-</div>
+</div> -->

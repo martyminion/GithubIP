@@ -5,7 +5,7 @@ import { HttpClientModule} from '@angular/common/http';
 import {RoutingModule} from '../app/routing/routing.module';
 
 
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { ShowUserComponent } from './show-user/show-user.component';
 import { ShowReposComponent } from './show-repos/show-repos.component';
@@ -24,7 +24,6 @@ import { CodersComponent } from './coders/coders.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
     HttpClientModule,
     RoutingModule,

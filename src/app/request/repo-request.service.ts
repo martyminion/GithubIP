@@ -15,15 +15,16 @@ export class RepoRequestService {
   repository:Repository;
   repositories:Repository[]=[];
   data:any
+  newdata:any
   repoNAme:SearchFormComponent;
   constructor(private http:HttpClient) {
     this.repository = new Repository("","","",new Date(),"","")
     this.Repo = new OwnerRepos("","","",new Date(),"","")
    }
-
+//+ "?access_token=" + environment.token
    repoRequest(repo){
      let promise = new Promise((resolve,reject)=>{
-       let reporequesturl = this.apiUrl + repo + "?access_token=" + environment.token
+       let reporequesturl = this.apiUrl + repo 
        this.http.get(reporequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)
@@ -47,23 +48,27 @@ export class RepoRequestService {
      return promise
 
    }
-
+// + "?access_token=" + environment.token
    ownerReposRequest(){
     let promise = new Promise((resolve,reject)=>{
-      let OwnerRepoRequest = this.ownerRepos + "?access_token=" + environment.token
+      let OwnerRepoRequest = this.ownerRepos
       this.http.get(OwnerRepoRequest).toPromise().then(response=>{
-        this.data = response
-       for(let i = 0; i<this.data.lenght;i++){
-        this.Repo.name = this.data[i].name
-        this.Repo.description = this.data[i].description
-        this.Repo.deployedSite = this.data[i].homepage
-        this.Repo.createdAt = this.data[i].created_at
-        this.Repo.urlLink = this.data[i].html_url
-        this.Repo.language = this.data[i].language
+        this.newdata = response
+
+        //console.log(this.data)
+       for(let i = 0; i<20;i++){
+        this.Repo.name = this.newdata[i].name
+        this.Repo.description = this.newdata[i].description
+        this.Repo.deployedSite = this.newdata[i].homepage
+        this.Repo.createdAt = this.newdata[i].created_at
+        this.Repo.urlLink = this.newdata[i].html_url
+        this.Repo.language = this.newdata[i].language
 
         this.Repos.push(new OwnerRepos(this.Repo.name,this.Repo.description,this.Repo.deployedSite,new Date(this.Repo.createdAt),
         this.Repo.urlLink,this.Repo.language))
        }
+       console.log(this.Repo.name)
+
         resolve()
       },
       error=>{

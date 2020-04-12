@@ -20,10 +20,10 @@ export class UserRequestService {
     this.user = new User("","","")
     this.owner = new Owner("","","",0,new Date())
    }
-
+// + "?access_token=" + environment.token
    userRequest(name){
      let promise = new Promise((resolve,reject)=>{
-       let userrequesturl = this.usersapiUrl + name + "?access_token=" + environment.token
+       let userrequesturl = this.usersapiUrl + name
        this.http.get(userrequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)
@@ -43,15 +43,15 @@ export class UserRequestService {
      return promise
 
    }
-
+//+ "?access_token=" + environment.token
    personalRequest(){
     let promise = new Promise((resolve,reject)=>{
-      let personalRequestUrl = this.userUrl+ "?access_token=" + environment.token
+      let personalRequestUrl = this.userUrl
       this.http.get(personalRequestUrl).toPromise().then(response=>{
         this.data = response
         console.log(this.data)
        
-        this.owner.username = this.data.name
+        this.owner.username = this.data.login
         this.owner.userImage = this.data.avatar_url
         this.owner.url = this.data.html_url
         this.owner.repoNumber = this.data.public_repos

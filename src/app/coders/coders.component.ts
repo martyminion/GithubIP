@@ -19,10 +19,15 @@ export class CodersComponent implements OnInit {
   ownerinfo:Owner
 
   ngOnInit(){
-    this.repoService.Repos = this.Repos
-    this.repoService.ownerReposRequest()
 
-    this.userService.owner = this.ownerinfo
+     //this.repoService.ownerReposRequest()
+      this.Repos = this.repoService.Repos
+      this.repoService.ownerReposRequest()
+
+    //this.userService.personalRequest()
+    this.ownerinfo = this.userService.owner 
+    this.userService.personalRequest()
+
   }
 
 }
