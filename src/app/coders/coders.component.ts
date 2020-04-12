@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {RepoRequestService} from '../request/repo-request.service'
+import {UserRequestService} from '../request/user-request.service'
+import{Owner} from '../user'
+import{OwnerRepos} from '../repository'
 
 
 
@@ -8,15 +12,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./coders.component.css']
 })
 export class CodersComponent implements OnInit {
-  constructor( ) { }
 
-  searchByUser(user){
-    //alert(user)
-  }
-  searchByRepo(repo){
-    alert(repo)
-  }
+  constructor(private userService:UserRequestService, private repoService:RepoRequestService) { }
+
+  Repos:OwnerRepos[]=[];
+  ownerinfo:Owner
+
   ngOnInit(){
+    this.repoService.Repos = this.Repos
+    this.repoService.ownerReposRequest()
+
+    this.userService.owner = this.ownerinfo
   }
 
 }
