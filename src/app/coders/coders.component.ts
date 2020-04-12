@@ -16,8 +16,13 @@ export class CodersComponent implements OnInit {
   constructor(private userService:UserRequestService, private repoService:RepoRequestService) { }
 
   Repos:OwnerRepos[]=[];
+  repo:OwnerRepos
   ownerinfo:Owner
 
+  toggle(){
+    this.repo.showRepositories = !this.repo.showRepositories
+    
+  }
   ngOnInit(){
 
      //this.repoService.ownerReposRequest()

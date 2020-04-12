@@ -12,6 +12,7 @@ export class Repository {
 
 export class OwnerRepos {
   error:string
+  showRepositories:boolean
   constructor(public name:string,
      public description:string, 
      public deployedSite:string, 
@@ -19,6 +20,7 @@ export class OwnerRepos {
      public urlLink:string,
      public language:string,
     ){
+      this.showRepositories=false;
     
   }
 }
