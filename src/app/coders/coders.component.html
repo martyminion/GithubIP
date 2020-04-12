@@ -1,11 +1,28 @@
-<h1>Are you a coder like me</h1>
 
-<div>
+
+<!-- <div>
   <h3>Hey I'm {{ownerinfo.username}}</h3>
 </div>
 <div *ngFor="let Repo of Repos">
-  <h3>repo name : {{Repo.name}}</h3>
+  <h3>repo na : {{Repo.name}}</h3>
   <p>{{Repo.description}}</p>
+</div> -->
+
+<div class="card text-center" style="width: 18rem;">
+  <img class="card-img-top" src="{{ownerinfo.userImage}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"> Hey I'm {{ownerinfo.username}}</h5>
+    <p class="card-text">'A computer engineer enthusiast who loves to code>'</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">I made my github account on {{ownerinfo.created}} </li>
+    <li class="list-group-item">{{ownerinfo.url}}</li>
+    <li class="list-group-item"><a href="#" class="card-link">Here are a couple of my projects</a></li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Search for other github users here</a>
+    <a href="#" class="card-link">Search for really cool repos here</a>
+  </div>
 </div>
 
 <!-- <div class="text-center">
