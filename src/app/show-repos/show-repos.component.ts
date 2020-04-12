@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RepoRequestService} from '../request/repo-request.service'
 
 @Component({
   selector: 'app-show-repos',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShowReposComponent implements OnInit {
 
-  constructor() { }
+  searchedRepos = []
+
+  constructor( private repoService:RepoRequestService) { }
 
   ngOnInit(): void {
+    this.searchedRepos = this.repoService.repositories
   }
 
 }

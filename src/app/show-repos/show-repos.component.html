@@ -1,1 +1,12 @@
-<p>show-repos works!</p>
+<h1>Repositories</h1>
+
+<div>
+    <ul *ngFor='let searchedRepo of searchedRepos'>
+    <li>{{searchedRepo.name}}</li>
+    <li>{{searchedRepo.description}}</li>
+    <li>{{searchedRepo.deployedSite}}</li>
+    <li>{{searchedRepo.createdAt}}</li>
+    <li>{{searchedRepo.urlLink}}</li>
+    <li>{{searchedRepo.owner}}</li>
+  </ul>
+</div>
