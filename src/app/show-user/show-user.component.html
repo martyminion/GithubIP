@@ -1,10 +1,4 @@
-<!-- <div class="container-fluid">
-  <ul *ngFor="let searchedUser of searchedUsers">
-    <li>{{searchedUser.username}} {{searchedUser.url}}</li>
-    <img src="" alt="">
-  </ul>
-
-</div> -->
+<div class="container">
 <div class="row userrow text-center">
   <div class="card col-sm-2 usercard"  *ngFor="let searchedUser of searchedUsers">
     <img class="card-img-top" src="{{searchedUser.userImage}}" alt="Card image cap">
@@ -17,4 +11,5 @@
       </li>
     </ul>
   </div>
+</div>
 </div>

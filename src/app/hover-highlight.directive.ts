@@ -11,11 +11,11 @@ export class HoverHighlightDirective {
     this.el.nativeElement.style.backgroundColor = color;
   }
 
-  @HostListener('mousehover') onMouseEnter(){
+  @HostListener('mouseenter') onMouseEnter(){
     this.highlight('yellow')
   }
 
-  @HostListener('stophover') onMouseLeave(){
+  @HostListener('mouseleave') onMouseLeave(){
     this.highlight(null)
   }
 
