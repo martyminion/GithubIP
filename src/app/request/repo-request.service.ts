@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {Repository} from '../repository'
-import {SearchFormComponent} from '../search-form/search-form.component'
+
 import {environment} from '../../environments/environment'
 import {OwnerRepos} from '../repository'
 @Injectable({
@@ -16,15 +16,20 @@ export class RepoRequestService {
   repositories:Repository[]=[];
   data:any
   newdata:any
-  repoNAme:SearchFormComponent;
+  repoNAme:string
+
   constructor(private http:HttpClient) {
     this.repository = new Repository("","","",new Date(),"","")
     this.Repo = new OwnerRepos("","","",new Date(),"","")
    }
 //+ "?access_token=" + environment.token
-   repoRequest(repo){
+
+   getrepoName(repoNAme:string){
+    this.repoNAme = repoNAme
+   }
+   repoRequest(){
      let promise = new Promise((resolve,reject)=>{
-       let reporequesturl = this.apiUrl + repo 
+       let reporequesturl = this.apiUrl + this.repoNAme 
        this.http.get(reporequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)

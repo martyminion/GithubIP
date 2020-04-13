@@ -5,8 +5,8 @@
   </ul>
 
 </div> -->
-<div class="row userrow">
-  <div class="card col-sm-3 usercard" style="width: 18rem;" *ngFor="let searchedUser of searchedUsers">
+<div class="row userrow text-center">
+  <div class="card col-sm-2 usercard"  *ngFor="let searchedUser of searchedUsers">
     <img class="card-img-top" src="{{searchedUser.userImage}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{searchedUser.username}}</h5>

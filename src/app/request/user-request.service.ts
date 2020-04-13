@@ -15,18 +15,25 @@ export class UserRequestService {
   users:User[]=[];
   owner:Owner;
   data:any
+  username:string
   userName:SearchFormComponent;
   constructor(private http:HttpClient) {
     this.user = new User("","","")
     this.owner = new Owner("","","",0,new Date())
    }
+
+   getUser(username:string){
+     this.username = username
+   }
+
+   
 // + "?access_token=" + environment.token
-   userRequest(name){
+   userRequest(){
+     this.users.length = 0;
      let promise = new Promise((resolve,reject)=>{
-       let userrequesturl = this.usersapiUrl + name
+       let userrequesturl = this.usersapiUrl + this.username
        this.http.get(userrequesturl).toPromise().then(response=>{
          this.data = response
-         console.log(this.data)
         for(let i = 0; i<15;i++){
          this.user.username = this.data.items[i].login
          this.user.userImage = this.data.items[i].avatar_url
@@ -41,7 +48,6 @@ export class UserRequestService {
        })
      })
      return promise
-
    }
 //+ "?access_token=" + environment.token
    personalRequest(){

@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <div class="form-group">
     <label for="searchByUsername">Search by Username</label>
-    <input type="text" name="searchByUsername" id="searchByUsername" class="form-control" #searchByUsername>
-    <button class="btn " (click)="userName(searchByUsername)">Search</button>
+    <input type="text" name="searchByUsername" id="searchByUsername" class="form-control" [(ngModel)]='searchByUsername'>
+    <button class="btn " (click)="userName()">Search</button>
   </div>
   <div class="form-group">
     <label for="searchByRepository">Search by Repository</label>
-    <input type="text" name="searchByRepository" id="searchByRepository" class="form-control" #searchByRepository>
-    <button class="btn " (click)="repository(searchByRepository)">Search</button>
+    <input type="text" name="searchByRepository" id="searchByRepository" class="form-control" [(ngModel)]='searchByRepository'>
+    <button class="btn " (click)="repository()">Search</button>
   </div>
 </div>
 

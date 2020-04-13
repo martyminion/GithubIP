@@ -10,13 +10,14 @@ import {UserRequestService} from '../request/user-request.service'
 })
 export class ShowUserComponent implements OnInit {
   searchedUsers = []
-
   constructor(private userService:UserRequestService) {
 
    }
 
   ngOnInit(){
      this.searchedUsers = this.userService.users
+     //console.log(this.userService.users)
+     
   }
 
 }

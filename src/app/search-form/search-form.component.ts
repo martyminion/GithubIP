@@ -3,6 +3,7 @@ import {UserRequestService} from '../request/user-request.service'
 import {RepoRequestService} from '../request/repo-request.service'
 
 
+
 @Component({
   selector: 'app-search-form',
   templateUrl: './search-form.component.html',
@@ -13,26 +14,27 @@ export class SearchFormComponent implements OnInit {
   @Output() searchUser = new EventEmitter();
   @Output() searchRepo = new EventEmitter()
 
-  user:string
-  repo:string
+  searchByUsername:string
+  searchByRepository:string
   constructor(private userService:UserRequestService, private repoService:RepoRequestService) { }
 
-  userName(searchByUsername:HTMLInputElement){
-    this.searchUser.emit(searchByUsername.value)
-    this.user = searchByUsername.value
+  userName(){
+    this.userService.getUser(this.searchByUsername)
+    this.userService.userRequest()
+    //console.log(this.userService.users)
+
+  }
+
+  repository(){
+    this.repoService.getrepoName(this.searchByRepository)
+    this.repoService.repoRequest()
+
     
-    this.userService.userRequest(this.user)
-  }
-  repository(searchByRepository:HTMLInputElement){
-    this.searchRepo.emit(searchByRepository.value)
-    this.repo = searchByRepository.value
-
-    this.repoService.repoRequest(this.repo)
   }
 
- 
-
-  ngOnInit(): void {
+  ngOnInit(){
+    
+    
   }
 
 }
