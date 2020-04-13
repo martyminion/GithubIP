@@ -13,16 +13,15 @@ import{OwnerRepos} from '../repository'
 })
 export class CodersComponent implements OnInit {
 
-  constructor(private userService:UserRequestService, private repoService:RepoRequestService) { }
-
+  repository:OwnerRepos;
   Repos:OwnerRepos[]=[];
-  repo:OwnerRepos
-  ownerinfo:Owner
+  ownerinfo:Owner;
 
+  constructor(private userService:UserRequestService, private repoService:RepoRequestService) { }
   toggle(){
-    this.repo.showRepositories = !this.repo.showRepositories
-    
+
   }
+
   ngOnInit(){
 
      //this.repoService.ownerReposRequest()

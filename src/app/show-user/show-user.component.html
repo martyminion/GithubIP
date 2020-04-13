@@ -1,7 +1,20 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <ul *ngFor="let searchedUser of searchedUsers">
     <li>{{searchedUser.username}} {{searchedUser.url}}</li>
-    <img src="{{searchedUser.userImage}}" alt="">
+    <img src="" alt="">
   </ul>
 
+</div> -->
+<div class="row userrow">
+  <div class="card col-md-3 usercard" style="width: 18rem;" *ngFor="let searchedUser of searchedUsers">
+    <img class="card-img-top" src="{{searchedUser.userImage}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{searchedUser.username}}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        <p class="card-text"><a href="{{searchedUser.url}}" class="card-link">{{searchedUser.url}}</a></p>
+      </li>
+    </ul>
+  </div>
 </div>
