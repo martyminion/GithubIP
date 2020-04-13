@@ -29,8 +29,9 @@ export class RepoRequestService {
    }
    repoRequest(){
      this.repositories.length = 0;
+    
      let promise = new Promise((resolve,reject)=>{
-       let reporequesturl = this.apiUrl + this.repoNAme 
+       let reporequesturl = this.apiUrl + this.repoNAme
        this.http.get(reporequesturl).toPromise().then(response=>{
          this.data = response
          console.log(this.data)
@@ -56,8 +57,9 @@ export class RepoRequestService {
    }
 // + "?access_token=" + environment.token
    ownerReposRequest(){
+    let secret = "?access_token=2d423" + environment.token
     let promise = new Promise((resolve,reject)=>{
-      let OwnerRepoRequest = this.ownerRepos
+      let OwnerRepoRequest = this.ownerRepos + secret
       this.http.get(OwnerRepoRequest).toPromise().then(response=>{
         this.newdata = response
 

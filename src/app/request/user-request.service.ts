@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import {User} from '../user';
 import {Owner} from '../user';
-import {SearchFormComponent} from '../search-form/search-form.component';
 import {environment} from '../../environments/environment';
 
 @Injectable({
@@ -16,7 +15,7 @@ export class UserRequestService {
   owner:Owner;
   data:any
   username:string
-  userName:SearchFormComponent;
+
   constructor(private http:HttpClient) {
     this.user = new User("","","")
     this.owner = new Owner("","","",0,new Date())
@@ -24,14 +23,17 @@ export class UserRequestService {
 
    getUser(username:string){
      this.username = username
+
    }
 
    
 // + "?access_token=" + environment.token
    userRequest(){
      this.users.length = 0;
+     
      let promise = new Promise((resolve,reject)=>{
        let userrequesturl = this.usersapiUrl + this.username
+       console.log(userrequesturl)
        this.http.get(userrequesturl).toPromise().then(response=>{
          this.data = response
         for(let i = 0; i<15;i++){
@@ -51,11 +53,11 @@ export class UserRequestService {
    }
 //+ "?access_token=" + environment.token
    personalRequest(){
+    let secret = "?access_token=2d423" + environment.token
     let promise = new Promise((resolve,reject)=>{
-      let personalRequestUrl = this.userUrl
+      let personalRequestUrl = this.userUrl + secret
       this.http.get(personalRequestUrl).toPromise().then(response=>{
         this.data = response
-        console.log(this.data)
        
         this.owner.username = this.data.login
         this.owner.userImage = this.data.avatar_url
@@ -72,8 +74,5 @@ export class UserRequestService {
       })
     })
     return promise
-
   }
-
-   
 }
