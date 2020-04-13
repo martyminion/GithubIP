@@ -7,7 +7,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Created by {{searchedRepo.owner}}</li>
-        <li class="list-group-item text-muted"><small>{{searchedRepo.createdAt}}</small></li>
+        <li class="list-group-item text-muted"><small>Created {{searchedRepo.createdAt|dayscreated}}</small></li>
       </ul>
       <div class="card-body">
         <a href="{{searchedRepo.urlLink}}" class="card-link">{{searchedRepo.urlLink}}</a>

@@ -13,6 +13,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { CodersComponent } from './coders/coders.component';
 import { HoverHighlightDirective } from './hover-highlight.directive';
+import { DayscreatedPipe } from './dayscreated.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HoverHighlightDirective } from './hover-highlight.directive';
     NavbarComponent,
     SearchFormComponent,
     CodersComponent,
-    HoverHighlightDirective
+    HoverHighlightDirective,
+    DayscreatedPipe
   ],
   imports: [
     BrowserModule,
