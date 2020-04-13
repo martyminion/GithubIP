@@ -1,6 +1,4 @@
-<h1>Repositories</h1>
-
-<div>
+<!-- <div>
     <ul *ngFor='let searchedRepo of searchedRepos'>
     <li>{{searchedRepo.name}}</li>
     <li>{{searchedRepo.description}}</li>
@@ -8,5 +6,22 @@
     <li>{{searchedRepo.createdAt}}</li>
     <li>{{searchedRepo.urlLink}}</li>
     <li>{{searchedRepo.owner}}</li>
+    <h1>Repositories</h1>
   </ul>
+</div> -->
+<div class="row">
+  <div class="card col-sm-3" style="width: 18rem;" *ngFor='let searchedRepo of searchedRepos'>
+    <div class="card-body">
+      <h5 class="card-title">{{searchedRepo.name}}</h5>
+      <p class="card-text">{{searchedRepo.description}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Created by {{searchedRepo.owner}}</li>
+      <li class="list-group-item text-muted"><small>{{searchedRepo.createdAt}}</small></li>
+    </ul>
+    <div class="card-body">
+      <a href="{{searchedRepo.deployedSite}}" class="card-link">Live Site</a>
+      <a href="{{searchedRepo.urlLink}}" class="card-link">{{searchedRepo.urlLink}}</a>
+    </div>
+  </div>
 </div>
