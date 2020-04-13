@@ -12,6 +12,7 @@ import { ShowReposComponent } from './show-repos/show-repos.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 import { CodersComponent } from './coders/coders.component';
+import { HoverHighlightDirective } from './hover-highlight.directive';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CodersComponent } from './coders/coders.component';
     ShowReposComponent,
     NavbarComponent,
     SearchFormComponent,
-    CodersComponent
+    CodersComponent,
+    HoverHighlightDirective
   ],
   imports: [
     BrowserModule,

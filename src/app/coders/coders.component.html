@@ -9,28 +9,24 @@
 
 <div class="container text-center">
   <div class="card usercard">
-    <img class="card-img-top" src="{{ownerinfo.userImage}}" alt="Card image cap">
+    <img class="card-img-top mx-auto usercardimg" src="{{ownerinfo.userImage}}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title"> Hey I'm {{ownerinfo.username}}</h5>
       <p class="card-text">'A computer engineer enthusiast who loves to code>'</p>
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">I made my github account on {{ownerinfo.created}} </li>
-      <li class="list-group-item"><a href="{{ownerinfo.url}}" target="_blank" class="card-link">{{ownerinfo.url}}</a>
+      <li class="list-group-item">Github Link : <a href="{{ownerinfo.url}}" target="_blank" class="card-link">{{ownerinfo.url}}</a>
       </li>
       <li class="list-group-item"><a href="#" class="card-link ">Here are a couple of my projects</a></li>
     </ul>
-    <div class="card-body">
-      <a href="/search" class="card-link">Search for other github users here</a>
-      <a href="/search" class="card-link">Search for really cool repos here</a>
-    </div>
   </div>
 
 
   <div id="showHide">
     <div class="row">
       <div class="col-sm-3 repoDisplay" *ngFor='let Repo of Repos; let i = index'>
-        <div class="card">
+        <div class="card cardRepo">
           <div class="card-header">
             {{Repo.name}}
           </div>

@@ -28,6 +28,7 @@ export class RepoRequestService {
     this.repoNAme = repoNAme
    }
    repoRequest(){
+     this.repositories.length = 0;
      let promise = new Promise((resolve,reject)=>{
        let reporequesturl = this.apiUrl + this.repoNAme 
        this.http.get(reporequesturl).toPromise().then(response=>{

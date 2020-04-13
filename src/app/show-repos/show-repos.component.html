@@ -12,7 +12,7 @@
 <div class="row">
   <div class="card col-sm-3" style="width: 18rem;" *ngFor='let searchedRepo of searchedRepos'>
     <div class="card-body">
-      <h5 class="card-title">{{searchedRepo.name}}</h5>
+      <h5 class="card-title" appHoverHighlight>{{searchedRepo.name}}</h5>
       <p class="card-text">{{searchedRepo.description}}</p>
     </div>
     <ul class="list-group list-group-flush">

@@ -1,7 +1,15 @@
 .repoDisplay{
-margin-bottom: 5px;
-height: auto;
+margin-bottom: 15px;
+
+}
+.usercardimg{
+  width: 200px;
+  height: 200px;
+}
+.cardRepo{
+  height: 350px;
 }
 .usercard{
-  
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
