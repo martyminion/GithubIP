@@ -29,6 +29,9 @@ export class DayscreatedPipe implements PipeTransform {
     else if(months > 12){
       return "about " +years+ " years ago"
     }
+    else{
+      return "some time back"
+    }
   }
 
 }
