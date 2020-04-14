@@ -1,0 +1,15 @@
+.card-header{
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
+}
+.card-title{
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+}
+.card-text{
+  font-family: 'Indie Flower', cursive;
+  font-size: 25px;
+}
+.row{
+  margin-bottom: 20px;
+}

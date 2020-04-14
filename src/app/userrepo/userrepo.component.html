@@ -1,0 +1,20 @@
+<div class="container text-center">
+  <div>
+    <div class="row">
+      <div class="col-sm-3 repoDisplay" *ngFor='let Repo of Repos; let i = index'>
+        <div class="card cardRepo">
+          <div class="card-header">
+            {{Repo.name}}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{Repo.description}}</h5>
+            <a href="{{Repo.urlLink}}">{{Repo.urlLink}}</a>
+            <p class="card-text">{{Repo.language}}</p>
+            <a href="{{Repo.deployedSite}}" class="btn btn-primary">Live Site</a>
+          </div>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ import { SearchFormComponent } from './search-form/search-form.component';
 import { CodersComponent } from './coders/coders.component';
 import { HoverHighlightDirective } from './hover-highlight.directive';
 import { DayscreatedPipe } from './dayscreated.pipe';
+import { UserrepoComponent } from './userrepo/userrepo.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DayscreatedPipe } from './dayscreated.pipe';
     SearchFormComponent,
     CodersComponent,
     HoverHighlightDirective,
-    DayscreatedPipe
+    DayscreatedPipe,
+    UserrepoComponent
   ],
   imports: [
     BrowserModule,

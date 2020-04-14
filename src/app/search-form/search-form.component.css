@@ -1,3 +1,9 @@
 label{
   font-family: 'Special Elite', cursive;
+  font-size: 25px;
+}
+
+.btn{
+  font-family: 'Righteous', cursive;
+  font-size: 20px;
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {RepoRequestService} from '../request/repo-request.service'
 import {UserRequestService} from '../request/user-request.service'
 import{Owner} from '../user'
 import{OwnerRepos} from '../repository'
+import {RepoRequestService} from '../request/repo-request.service'
 
 
 
@@ -17,21 +17,20 @@ export class CodersComponent implements OnInit {
   Repos:OwnerRepos[]=[];
   ownerinfo:Owner;
 
-  constructor(private userService:UserRequestService, private repoService:RepoRequestService) { }
+  constructor(private userService:UserRequestService,private repoService:RepoRequestService) { }
   toggle(){
-
+    this.ownerinfo.displayRepos = ! this.ownerinfo.displayRepos
   }
 
   ngOnInit(){
-
-     //this.repoService.ownerReposRequest()
-      this.Repos = this.repoService.Repos
-      this.repoService.ownerReposRequest()
 
     //this.userService.personalRequest()
     this.ownerinfo = this.userService.owner 
     this.userService.personalRequest()
 
+     //this.repoService.ownerReposRequest()
+     this.repoService.ownerReposRequest()
+     this.Repos = this.repoService.Repos
   }
 
 }

@@ -20,7 +20,6 @@ export class OwnerRepos {
      public urlLink:string,
      public language:string,
     ){
-    
   }
 }
 
